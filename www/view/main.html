@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Main blackdish</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+    <script src="js/jquery/jquery-1.9.1.min.js"></script>
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <style>
+    :root { --ion-safe-area-top: 20px; --ion-safe-area-bottom: 22px;}
+    ion-title{text-align:center;}
+  </style>
+  </head>
+  <body>
+    <ion-app>
+    <ion-menu side="start" content-id="main-content">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Bienvenido</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item>
+            <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
+            <ion-label><a class="black-text" href="view/profile.html">Información</a></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="star-outline"></ion-icon>
+            <ion-label><a class="black-text" href="">Mis platillos favoritos</a></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="book"></ion-icon>
+            <ion-label><a class="black-text" href="">Terminos y condiciones</a></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="bug"></ion-icon>
+            <ion-label><a class="black-text" href="">Reportar problema</a></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="home"></ion-icon>
+            <ion-label><a class="black-text" href="">volver al menú</a></ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>Blackdish</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <!-- contenido principal -->
+
+      <div>
+          <ion-tabs>
+          <ion-menu side="start" content-id="main-content">
+          <ion-header>
+            <ion-toolbar translucent>
+              <ion-title>Menu</ion-title>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content>
+            <ion-list>
+              <ion-item>
+                <ion-icon name="mail" slot="start"></ion-icon>
+                <ion-label>Inbox</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="paper-plane" slot="start"></ion-icon>
+                <ion-label>Outbox</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="heart" slot="start"></ion-icon>
+                <ion-label>Favorites</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="archive" slot="start"></ion-icon>
+                <ion-label>Archived</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="trash" slot="start"></ion-icon>
+                <ion-label>Trash</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="warning" slot="start"></ion-icon>
+                <ion-label>Spam</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ion-menu>
+          <ion-tab tab="restaurantes">
+            <ion-content fullscreen class="ion-padding">
+              <!-- seccion que carga los restaurantes -->
+              <br />
+              <br />
+              <br />
+              <ion-content  class="row" id="restaurantContainer"></ion-content>
+            </ion-content>
+          </ion-tab>
+
+          <ion-tab tab="top">
+            <ion-header translucent>
+              <ion-toolbar>
+                <!-- titulo -->
+                <ion-title>Blackdish</ion-title>
+              </ion-toolbar>
+            </ion-header>
+
+            <ion-content fullscreen class="ion-padding">
+              <!-- seccion que carga el top -->
+              <ion-content class="row" id="topContainer"></ion-content>
+            </ion-content>
+          </ion-tab>
+
+          <ion-tab tab="promociones">
+            <ion-header translucent>
+              <ion-toolbar>
+                <!-- titulo -->
+                <ion-title>Blackdish</ion-title>
+              </ion-toolbar>
+            </ion-header>
+
+            <ion-content fullscreen class="ion-padding">
+              <!-- seccion que carga las promociones -->
+              <ion-content class="row" id="promosContainer"></ion-content>
+            </ion-content>
+          </ion-tab>
+
+          <ion-tab tab="category">
+            <ion-header translucent>
+              <ion-toolbar>
+                <!-- titulo -->
+                <ion-title>Blackdish</ion-title>
+              </ion-toolbar>
+            </ion-header>
+
+            <ion-content fullscreen class="ion-padding">
+              <!-- seccion que carga las categorias -->
+              <ion-content class="row hidden" id="categoriasContainer"></ion-content>
+              <ion-content class="row hidden" id="resultContainer"></ion-content>
+            </ion-content>
+            <ion-content>
+                <ion-content></ion-content>
+            </ion-content>
+          </ion-tab>
+          <!-- -->
+          <ion-tab-bar slot="bottom">
+            <!-- seccion que carga los restaurantes -->
+            <ion-tab-button tab="restaurantes">
+              <ion-label>Restaurantes</ion-label>
+              <ion-icon name="md-restaurant"></ion-icon>
+            </ion-tab-button>
+            <!-- seccion que carga los top, mejor valorados -->
+            <ion-tab-button tab="top">
+               <ion-label>Top</ion-label>
+               <ion-icon name="ribbon"></ion-icon>
+            </ion-tab-button>
+            <!-- seccion que carga las promociones -->
+            <ion-tab-button tab="promociones">
+              <ion-label>Promociones</ion-label>
+              <ion-icon name="flag"></ion-icon>
+            </ion-tab-button>
+            <!-- seccion que carga las categorías -->
+            <ion-tab-button tab="category">
+              <ion-label>Categorias</ion-label>
+              <ion-icon name="grid"></ion-icon>
+            </ion-tab-button>
+          </ion-tab-bar>
+        </ion-tabs>
+      </div>
+    </div>
+  </ion-app>
+  </body>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      loadRestaurantes();
+      loadTop();
+      loadPromos();
+      loadCategory(id,Nombre,imagen);
+    });
+  </script>
+  <script type="text/javascript" src="js/app.js"></script>
+</html>
