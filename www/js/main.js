@@ -136,7 +136,7 @@ function loadTop(){
     success:function(resp){
       var Tops = JSON.parse(resp);
       for(var i in Tops){
-        $("#topContainer").append("<div class='col l6 offset-l3 s12 m8 offset-m2'><ul class='collection'><li class='collection-item avatar'><br /><br /><img  src='https://blackdish.mx/blackdish-beta-v3/img/dishes/"+Tops[i].imagen+"' alt='' class='circle'><span class='title'><b>"+Tops[i].platillo+"</b></span><p>Preparado por <strong>"+Tops[i].restaurant+"</strong><br><br></p><p> <i class='tiny material-icons cardbtn'>grade</i>"+Tops[i].calificacion+" ("+Tops[i].votos+")</p><br><div href='#modal1' class='secondary-content modal-trigger'><br /><br /><br /><br><br><b class= 'chip '>$"+Tops[i].precio+"</b></div></li></ul></div>");
+        $("#topContainer").append("<div class='col l6 offset-l3 s12 m8 offset-m2'><ul class='collection'><li class='collection-item avatar'><br /><br /><img  src='https://blackdish.mx/blackdish-beta-v3/backend/model/img_admin/"+Tops[i].imagen+"' alt='' class='circle' width='90' height='85'><span class='title'><b>"+Tops[i].platillo+"</b></span><p>Preparado por <strong>"+Tops[i].restaurant+"</strong><br><br></p><p> <i class='tiny material-icons cardbtn'>grade</i>"+Tops[i].calificacion+" ("+Tops[i].votos+")</p><br><div href='#modal1' class='secondary-content modal-trigger'><br /><br /><br /><br><br><b class= 'chip '>$"+Tops[i].precio+"</b></div></li></ul></div>");
       }
     },
     error:function(err){
